@@ -29,7 +29,7 @@ public class Alcohol {
         
         double massEthanol = volumeOfDrink*alcoholComparedToVolume*RHO; // 1000/1000 .. kg
         double promilesOfAlcohol = massEthanol/mass/R; // 0..1
-        double speed = mass*BETA; // kg * g/h
+        double speed = mass*BETA; // kg * g/h = 1000 g^2/h
         
         
     }

@@ -11,6 +11,29 @@ import java.util.Scanner;
  * @author vojta
  */
 public class PointCircle {
+    public static float[] calcDistance(float[] a, float[] b){
+        int max = Math.max(a.length, b.length);
+        int min = Math.min(a.length, b.length);
+        boolean a_greater = (a.length > b.length);
+        
+        float[] result = new float[max];
+        for(int i = 0; i < min; i++){
+            result[i] = a[i] - b[i];
+        }
+        for(int j = min; j < max; j++){
+            result[j] = a_greater ? a[j]: b[j];
+        }
+        return result;
+    }
+    
+    public static float calcLenght(float[] dist){
+        float result = 0f;
+        for(int i = 0; i < dist.length; i++){
+            result = dist[i]*dist[i];
+        }
+        return (float)Math.sqrt(result);
+    }
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("A(x): ");
