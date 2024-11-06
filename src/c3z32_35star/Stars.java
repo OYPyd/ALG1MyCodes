@@ -43,7 +43,18 @@ public class Stars {
         System.out.println("*");}
     }
     
+        public static void z36(int num){
+        for (int j = 0; j < num; j++){
+        for (int k = 0; k < num-j; k++){
+            System.out.print(" ");
+        }
+        for (int i = 1; i < num; i++){
+            System.out.print("* ");
+        }
+        System.out.println("*");}
+    }
+    
     public static void main(String[] args) {
-        z35(5);
+        z36(15);
     }
 }
