@@ -4,25 +4,27 @@
  */
 package tools;
 
+import java.util.Scanner;
+
 /**
  *
  * @author vojta
  */
 public class ParseEval {
     public static void main(String[] args) {
-        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Eval: ");
+        String line = sc.nextLine();
+        System.out.println(eval("22+"+line));
     }
     
     public static int eval(String a){
         int num = 0;
         int num1 = 0;
         char cur = ' ';
-        for (int i = 0; i < a.length; i++){
+        for (int i = 0; i < a.length(); i++){
             switch(a.charAt(i)){
-            case '+':
-            case '-':
-            case '*':
-            case '/':
+            case '+': case '-': case '*': case '/':
                 switch(cur){
                     case ' ':
                         num = num1;
@@ -48,6 +50,22 @@ public class ParseEval {
                 num1 = num1*10 + Character.getNumericValue(a.charAt(i));
             }
         }
+        switch(cur){
+            case ' ':
+                num = num1;
+                break;
+            case '+':
+                num = num + num1;
+                break;
+            case '-':
+                num = num - num1;
+                break;
+            case '*':
+                num = num * num1;
+                break;
+            case '/':
+                num = num / num1;
+                break;}
         return num;
     }
 }
